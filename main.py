@@ -11,25 +11,43 @@ def New():
     TextArea.delete(1.0, END)
 
 def Open():
-    pass
+    global file
+    file = askopenfilename(defaultextension=".txt", filetypes = [("Text Documents","*.txt*")])
+    if file=="":
+        file=None
 
 def Save():
-    pass
+    global file
+    if file == None:
+        file = asksaveasfilename(initialfile="Untitled.txt", defaultextension = ".txt",filetypes = [("Text Documents","*.txt*")])
+        if file == "":
+            file = None
+        else:
+            f=open(file,"w")
+            f.write(TextArea.get(1.0,END))
+            f.close()
+            root.title(os.path.basename(file+ " - Notepad"))
+            print("File Saved")
+    else:
+        f=open(file,"w")
+        f.write(TextArea.get(1.0,END))
+        f.close()
+
 
 def Exit():
-    pass
+    root.destroy()
 
 def Cut():
-    pass
+    TextArea.event_generate(("<<Cut>>"))
 
 def Copy():
-    pass
+    TextArea.event_generate(("<<Copy>>"))
 
 def Paste():
-    pass
+    TextArea.event_generate(("<<Paste>>"))
 
 def about():
-    pass
+    showinfo("Notepad", "Notepad by YourName")
 
 root.title("Notepad")
 root.geometry("644x788")
