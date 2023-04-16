@@ -10,6 +10,27 @@ def New():
     file = None
     TextArea.delete(1.0, END)
 
+def Open():
+    pass
+
+def Save():
+    pass
+
+def Exit():
+    pass
+
+def Cut():
+    pass
+
+def Copy():
+    pass
+
+def Paste():
+    pass
+
+def about():
+    pass
+
 root.title("Notepad")
 root.geometry("644x788")
 TextArea = Text(root,font="Arial 13")
@@ -27,13 +48,16 @@ FileMenu.add_command(label="Save", command=Save)
 FileMenu.add_separator()
 FileMenu.add_command(label="Exit", command=Exit)
 
+EditMenu = Menu(MenuBar, tearoff =0)
 MenuBar.add_cascade(label="Edit", menu=EditMenu)
-FileMenu.add_command(label="Cut", command=Cut)
-FileMenu.add_command(label="Copy", command=Copy)
-FileMenu.add_command(label="Paste", command=Paste)
+EditMenu.add_command(label="Cut", command=Cut)
+EditMenu.add_command(label="Copy", command=Copy)
+EditMenu.add_command(label="Paste", command=Paste)
 
+HelpMenu = Menu(MenuBar, tearoff =0)
 MenuBar.add_cascade(label="Help", menu=HelpMenu)
-HelpMenu=Menu(MenuBar, tearoff=0)
+# HelpMenu=Menu(MenuBar, tearoff=0)
+HelpMenu.add_command(label="About Notepad", command = about)
 
 root.config(menu=MenuBar)
 root.mainloop()
