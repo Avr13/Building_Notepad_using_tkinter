@@ -74,7 +74,6 @@ EditMenu.add_command(label="Paste", command=Paste)
 
 HelpMenu = Menu(MenuBar, tearoff =0)
 MenuBar.add_cascade(label="Help", menu=HelpMenu)
-# HelpMenu=Menu(MenuBar, tearoff=0)
 HelpMenu.add_command(label="About Notepad", command = about)
 
 root.config(menu=MenuBar)
